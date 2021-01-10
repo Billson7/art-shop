@@ -23,7 +23,7 @@ function Product(props) {
         <div className="flex flex-col md:flex-row">
           <div className=" m-auto w-10/12 md:w-5/12">
             <img
-              className="object-contain rounded-xl shadow-xl m-4"
+              className="object-contain rounded-xl shadow-xl m-1 md:m-4"
               src={props?.posts?.data?.image?.url}
               alt={props?.posts?.data?.image?.alt}
             />

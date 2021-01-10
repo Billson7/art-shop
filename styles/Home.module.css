@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
 
-
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -42,7 +41,6 @@
 
 .title a {
   font-family: "Heebo", sans-serif;
-
   color: #0070f3;
   text-decoration: none;
 }

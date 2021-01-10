@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 export default function NavBar() {
-  const navStyle = "h-12 w-screen text-center bg-gray-300 shadow-md";
-  const navBarItem = "leading-loose mx-8 p-2 hover:underline rounded-lg ";
+  const navStyle = "h-12 w-screen text-center shadow-md";
+  const navBarItem =
+    "leading-loose sm:mx-2 md:mx-4 lg:mx-8 p-2 hover:underline rounded-lg ";
   return (
     <div id="navbar" className={navStyle}>
       <div id="heading" className="flex">

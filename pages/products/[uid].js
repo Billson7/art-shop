@@ -20,40 +20,42 @@ function Product(props) {
       <NavBar />
 
       <main className={styles.main}>
-        <div className=" m-auto w-5/12">
-          <img
-            className="object-contain rounded-xl shadow-xl m-4"
-            src={props?.posts?.data?.image?.url}
-            alt={props?.posts?.data?.image?.alt}
-          />
-        </div>
-        <div className="m-auto w-5/12">
-          <h1 className="text-gray-900font-semibold text-3xl leading-tight mt-2">
-            {RichText.asText(props?.posts?.data?.title)}
-          </h1>
-          <p className="mt-2">
-            £{props?.posts?.data?.price}{" "}
-            <span className="text-gray-600 text-sm mt-6">/ per portrait</span>
-          </p>
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mt-6">
-            Add to Bag
-          </button>
-          <p className="text-gray-900 font-normal text-base leading-tight mt-6">
-            {RichText.asText(props?.posts?.data?.description)}
-          </p>
-          <div>
-            <p className="text-gray-900 font-semibold text-md leading-relaxed mt-6">
-              {RichText.render(props?.posts?.data?.portraitInfo)}
-            </p>
+        <div className="flex flex-col md:flex-row">
+          <div className=" m-auto w-10/12 md:w-5/12">
+            <img
+              className="object-contain rounded-xl shadow-xl m-1 md:m-4"
+              src={props?.posts?.data?.image?.url}
+              alt={props?.posts?.data?.image?.alt}
+            />
           </div>
+          <div className="m-auto w-9/12 md:w-5/12">
+            <h1 className="text-gray-900 font-semibold text-3xl leading-tight mt-2">
+              {RichText.asText(props?.posts?.data?.title)}
+            </h1>
+            <p className="mt-2">
+              £{props?.posts?.data?.price}{" "}
+              <span className="text-gray-600 text-sm mt-6">/ per portrait</span>
+            </p>
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mt-6">
+              Add to Bag
+            </button>
+            <p className="text-gray-900 font-normal text-base leading-tight mt-6">
+              {RichText.asText(props?.posts?.data?.description)}
+            </p>
+            <div>
+              <p className="text-gray-900 font-semibold text-md leading-relaxed mt-6">
+                {RichText.render(props?.posts?.data?.portraitInfo)}
+              </p>
+            </div>
 
-          <Link href={`/product/`}>
-            <a>
-              <div className="text-gray-600 text-sm mt-6">
-                &larr; Return to Products
-              </div>
-            </a>
-          </Link>
+            <Link href={`/product/`}>
+              <a>
+                <div className="text-gray-600 text-sm mt-6">
+                  &larr; Return to Products
+                </div>
+              </a>
+            </Link>
+          </div>
         </div>
       </main>
 

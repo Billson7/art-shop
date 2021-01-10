@@ -53,10 +53,6 @@ export default function Home(props) {
             </div>
           </Link>
         </div>
-
-        {/*TODO homepage*/}
-        {/*TODO giftcard page*/}
-        {/*TODO [UID] page for prints and giftcards*/}
       </main>
 
       <footer className={styles.footer}>

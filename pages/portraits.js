@@ -41,7 +41,7 @@ export default function Portraits(props) {
                     {RichText.asText(post?.data?.description)}
                   </p>
                   <p className="mt-1">
-                    £{post?.data?.price}{" "}
+                    £ TBC{" "}
                     <span className="text-gray-600 text-sm">
                       / per commission
                     </span>

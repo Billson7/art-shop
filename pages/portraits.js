@@ -41,7 +41,6 @@ export default function Portraits(props) {
                     {RichText.asText(post?.data?.description)}
                   </p>
                   <p className="mt-1">£ TBC </p>
-
                   <p className="text-gray-900 text-sm mt-4">
                     More information &rarr;
                   </p>

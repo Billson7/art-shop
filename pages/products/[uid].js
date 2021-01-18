@@ -10,11 +10,34 @@ import NavBar from "../components/navBar";
 function Product(props) {
   const router = useRouter();
   const { uid } = router.query;
+  const currentUid = props.posts?.uid;
+  const targetUid = "portrait";
+
+  const pageType = () => {
+    const pageUid = currentUid.includes(targetUid)
+      ? "£ TBC"
+      : `£${props.posts.data?.price}`;
+    return pageUid;
+  };
+
+  const returnPage = () => {
+    const determinePage = currentUid.includes(targetUid)
+      ? "/portraits"
+      : "/prints";
+    return determinePage;
+  };
+
+  const priceLabel = () => {
+    const label = currentUid.includes(targetUid)
+      ? "/ per portrait"
+      : "/ per print";
+    return label;
+  };
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>{RichText.asText(props?.posts?.data?.title)}</title>
+        <title>{RichText.asText(props.posts.data?.title)}</title>
       </Head>
 
       <NavBar />
@@ -33,8 +56,11 @@ function Product(props) {
               {RichText.asText(props?.posts?.data?.title)}
             </h1>
             <p className="mt-2">
-              £{props?.posts?.data?.price}{" "}
-              <span className="text-gray-600 text-sm mt-6">/ per portrait</span>
+              {pageType()}
+              <span className="text-gray-600 text-sm mt-6">
+                {" "}
+                {priceLabel()}
+              </span>
             </p>
             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mt-6">
               Add to Bag
@@ -48,11 +74,9 @@ function Product(props) {
               </p>
             </div>
 
-            <Link href={`/product/`}>
+            <Link href={`${returnPage()}`}>
               <a>
-                <div className="text-gray-600 text-sm mt-6">
-                  &larr; Return to Products
-                </div>
+                <div className="text-gray-600 text-sm mt-6">&larr; Go Back</div>
               </a>
             </Link>
           </div>
@@ -65,6 +89,7 @@ function Product(props) {
 }
 
 export default Product;
+
 export async function getStaticPaths() {
   const res = await client.query(
     Prismic.Predicates.at("document.type", "portraits"),

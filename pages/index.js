@@ -54,10 +54,6 @@ export default function Home(props) {
           </Link>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a>Powered by Caffeine</a>
-      </footer>
     </div>
   );
 }

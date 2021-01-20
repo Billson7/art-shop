@@ -42,7 +42,7 @@ function Product(props) {
 
       <NavBar />
 
-      <main className={styles.main}>
+      <section className={styles.main}>
         <div className="flex flex-col md:flex-row">
           <div className=" m-auto w-10/12 md:w-5/12">
             <img
@@ -81,9 +81,7 @@ function Product(props) {
             </Link>
           </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>Powered by caffeine</footer>
+      </section>
     </div>
   );
 }

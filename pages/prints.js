@@ -42,9 +42,7 @@ export default function Prints(props) {
                   </p>
                   <p className="mt-1">
                     £{post?.data?.price}{" "}
-                    <span className="text-gray-600 text-sm">
-                      / per commission
-                    </span>
+                    <span className="text-gray-600 text-sm">/ per print</span>
                   </p>
 
                   <p className="text-gray-900 text-sm mt-4">

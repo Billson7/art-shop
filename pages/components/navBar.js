@@ -15,12 +15,6 @@ export default function NavBar() {
           <Link href="/portraits">
             <a className={navBarItem}>Portraits</a>
           </Link>
-          <Link href="/coming-soon">
-            <a className={navBarItem}>Prints</a>
-          </Link>
-          <Link href="/coming-soon">
-            <a className={navBarItem}>Giftcards</a>
-          </Link>
         </div>
       </div>
     </span>

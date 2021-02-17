@@ -23,7 +23,7 @@ export default function Home(props) {
             <div
               style={{
                 backgroundImage: `url(${imagePortraitSrc})`,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
               }}
               className="row-span-3 box-content h-96 w-48 p-5 rounded-lg text-white text-center shadow-md cursor-pointer"
             >
@@ -34,7 +34,7 @@ export default function Home(props) {
             <div
               style={{
                 backgroundImage: `url(${imagePrintSrc})`,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
               }}
               className="col-span-2 box-content h-40 w-48 p-5 rounded-lg text-white text-center shadow-md cursor-pointer"
             >
@@ -45,7 +45,7 @@ export default function Home(props) {
             <div
               style={{
                 backgroundImage: `url(${imageGiftcardSrc})`,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
               }}
               className="mt-2 row-span-2 col-span-2 box-content h-40 w-48 p-5 rounded-lg text-center shadow-md cursor-pointer"
             >
@@ -67,7 +67,7 @@ export async function getStaticProps() {
     props: {
       homePortrait,
       homePrint,
-      homeGiftcard
-    }
+      homeGiftcard,
+    },
   };
 }

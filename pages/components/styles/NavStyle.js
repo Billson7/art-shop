@@ -1,8 +1,6 @@
 
 import styled from "styled-components";
-// const navStyle = "h-12 w-screen text-center shadow-md";
-// const navBarItem =
-//   "leading-loose sm:mx-2 md:mx-4 lg:mx-8 p-2 hover:underline rounded-lg ";
+
 const NavStyle = styled.ul`
   margin: 0;
   padding: 0;

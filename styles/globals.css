@@ -11,8 +11,13 @@ body {
   width: 100%;
 }
 
+p h1 {
+  font-family: 'Heebo', sans-serif;
+}
+
 a {
   color: inherit;
+  font-family: 'Heebo', sans-serif;
   text-decoration: none;
 }
 

@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 // const navStyle = "h-12 w-screen text-center shadow-md";
 // const navBarItem =
@@ -8,9 +9,9 @@ const NavStyle = styled.ul`
   display: flex;
   justify-self: end;
   font-size: 2rem;
+  font-family: "Heebo", sans-serif;
 
-  a,
-  button {
+  a, button {
     padding: 1rem 3rem;
     display: flex;
     align-items: center;
@@ -20,7 +21,7 @@ const NavStyle = styled.ul`
     border: 0;
     cursor: pointer;
     @media (max-width: 700px) {
-      font-size: 10px;
+      font-size: 18px;
       padding: 0 10px;
     }
     &:before {

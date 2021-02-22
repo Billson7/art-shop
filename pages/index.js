@@ -7,6 +7,7 @@ export default function Home(props) {
   const imagePortraitSrc = props.homePortrait.data.portraitimage?.url;
   const imagePrintSrc = props.homePrint.data.printimage?.url;
   const imageGiftcardSrc = props.homeGiftcard.data.giftcardimage?.url;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,16 +17,16 @@ export default function Home(props) {
 
       <main className={styles.main}>
         <div id="heading">
-          <h1 className="text-5xl text-center">Welcome to Art</h1>
+          <h1 className=" text-4xl sm:text-5xl text-center">Welcome to Art</h1>
         </div>
         <div className="mt-20 grid grid-rows-3 grid-flow-col gap-4">
           <Link href="/portraits">
             <div
               style={{
                 backgroundImage: `url(${imagePortraitSrc})`,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
               }}
-              className="row-span-3 box-content h-96 w-48 p-5 rounded-lg text-white text-center shadow-md cursor-pointer"
+              className="row-span-3 box-content h-96 w-24 sm:32 md:w-48 p-5 rounded-lg text-white text-center shadow-md cursor-pointer"
             >
               <a>Portraits</a>
             </div>
@@ -34,9 +35,9 @@ export default function Home(props) {
             <div
               style={{
                 backgroundImage: `url(${imagePrintSrc})`,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
               }}
-              className="col-span-2 box-content h-40 w-48 p-5 rounded-lg text-white text-center shadow-md cursor-pointer"
+              className="col-span-2 box-content h-40 w-24 sm:32 md:w-48 p-5 rounded-lg text-white text-center shadow-md cursor-pointer"
             >
               Prints - Coming Soon!
             </div>
@@ -45,9 +46,9 @@ export default function Home(props) {
             <div
               style={{
                 backgroundImage: `url(${imageGiftcardSrc})`,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
               }}
-              className="mt-2 row-span-2 col-span-2 box-content h-40 w-48 p-5 rounded-lg text-center shadow-md cursor-pointer"
+              className="mt-2 row-span-2 col-span-2 box-content h-40 w-24 sm:32 md:w-48 p-5 rounded-lg text-center shadow-md cursor-pointer"
             >
               Giftcard - Coming Soon!
             </div>
@@ -67,7 +68,7 @@ export async function getStaticProps() {
     props: {
       homePortrait,
       homePrint,
-      homeGiftcard
-    }
+      homeGiftcard,
+    },
   };
 }

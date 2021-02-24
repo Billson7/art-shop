@@ -1,11 +1,11 @@
-import styles from "../styles/Home.module.css";
-import NavBar from "./components/navBar";
+import Header from "./components/Header";
 
 export default function Giftcards() {
   return (
     <div>
-      <NavBar />
+      <Header />
       <div>Shop will be here</div>
     </div>
   );
 }
+ƒ;

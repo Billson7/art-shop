@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import NavBar from "./components/navBar.js";
+import Header from "./components/Header";
 import Link from "next/link";
 export const ComingSoon = () => {
   const buttonTailwind =
@@ -9,7 +9,8 @@ export const ComingSoon = () => {
       <head>
         <title>BMA | Coming Soon</title>
       </head>
-      <NavBar />
+      <Header />
+
       <main className={styles.main}>
         <h1 className="text-6xl">Coming Soon - 2021</h1>
 

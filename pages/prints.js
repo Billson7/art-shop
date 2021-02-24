@@ -5,10 +5,11 @@ import Head from "next/head";
 import { client } from "../prismic-configuration";
 import Prismic from "prismic-javascript";
 import styles from "../styles/Product.module.css";
+import Container from './components/styles/ContainerStyle'
 
 export default function Prints(props) {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <title>BMA | Prints</title>
       </Head>
@@ -54,7 +55,7 @@ export default function Prints(props) {
           </div>
         ))}
       </div>
-    </div>
+    </Container>
   );
 }
 

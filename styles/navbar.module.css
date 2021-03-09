@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Heebo&display=swap");
 
 .navBar {
-    font-family:  "Heebo", sans-serif;;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  font-family: "Heebo", sans-serif;
+  text-align: center;
 }

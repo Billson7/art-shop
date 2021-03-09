@@ -40,13 +40,7 @@ export default function Portraits(props) {
                   <p className=" text-sm leading-tight truncate">
                     {RichText.asText(post?.data?.description)}
                   </p>
-                  <p className="mt-1">
-                    £{post?.data?.price}{" "}
-                    <span className="text-gray-600 text-sm">
-                      / per commission
-                    </span>
-                  </p>
-
+                  <p className="mt-1">£ TBC </p>
                   <p className="text-gray-900 text-sm mt-4">
                     More information &rarr;
                   </p>

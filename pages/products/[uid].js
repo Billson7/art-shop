@@ -10,9 +10,9 @@ import NavBar from "../components/navBar";
 function Product(props) {
   const router = useRouter();
   const { uid } = router.query;
+
   const currentUid = props.posts?.uid;
   const targetUid = "portrait";
-
   const pageType = () => {
     const pageUid = currentUid.includes(targetUid)
       ? "£ TBC"
@@ -34,10 +34,27 @@ function Product(props) {
     return label;
   };
 
+  const cmsRoute = () => {
+    const label = currentUid.includes(targetUid) ? "posts" : "prints";
+    return label;
+  };
+
+  const productInformation = () => {
+    const label = currentUid.includes(targetUid)
+      ? RichText.render(props?.posts?.data?.portraitInfo) ||
+        RichText.render(props?.prints?.data?.printInfo)
+      : {};
+    return label;
+  };
+
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>{RichText.asText(props.posts.data?.title)}</title>
+        <title>
+          {RichText.asText(props.posts?.data?.title) ||
+            RichText.asText(props.prints?.data?.title)}
+        </title>
       </Head>
 
       <NavBar />
@@ -53,7 +70,9 @@ function Product(props) {
           </div>
           <div className="m-auto w-9/12 md:w-5/12">
             <h1 className="text-gray-900 font-semibold text-3xl leading-tight mt-2">
-              {RichText.asText(props?.posts?.data?.title)}
+              {RichText.asText(
+                props?.posts?.data?.title || props?.prints?.data?.title
+              )}
             </h1>
             <p className="mt-2">
               {pageType()}
@@ -66,11 +85,14 @@ function Product(props) {
               Add to Bag
             </button>
             <p className="text-gray-900 font-normal text-base leading-tight mt-6">
-              {RichText.asText(props?.posts?.data?.description)}
+              {RichText.asText(
+                props?.posts?.data?.description ||
+                  props?.prints?.data?.description
+              )}
             </p>
             <div>
               <p className="text-gray-900 font-semibold text-md leading-relaxed mt-6">
-                {RichText.render(props?.posts?.data?.portraitInfo)}
+                {productInformation()}
               </p>
             </div>
 
@@ -90,7 +112,7 @@ export default Product;
 
 export async function getStaticPaths() {
   const res = await client.query(
-    Prismic.Predicates.at("document.type", "portraits"),
+    Prismic.Predicates.at("document.type", "portraits" || "prints"),
     {
       orderings: "[my.post.date desc]"
     }
@@ -101,11 +123,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const posts = await client.getByUID("portraits", `${params.uid}`);
+  const posts = (await client.getByUID("portraits", `${params.uid}`)) || null;
+  const prints = (await client.getByUID("prints", `${params.uid}`)) || null;
 
   return {
     props: {
-      posts
+      posts,
+      prints
     }
   };
 }

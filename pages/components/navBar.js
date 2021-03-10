@@ -5,8 +5,7 @@ export default function NavBar() {
     <nav>
       <NavStyle>
         <Link href="/">Home</Link>
-        <Link href="/portraits">Portraits</Link>
-        <Link href="/coming-soon">Prints</Link>
+        <Link href="/portraits">Products</Link>
         <Link href="/coming-soon">Giftcards</Link>
       </NavStyle>
     </nav>

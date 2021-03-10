@@ -7,24 +7,25 @@ import Prismic from "prismic-javascript";
 import styles from "../styles/Product.module.css";
 
 export default function Portraits(props) {
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>BMA | Portraits</title>
+        <title>BMA | Products</title>
       </Head>
       <NavBar />
 
       <main className={styles.main}>
         <h1 className="text-gray-900 text-center font-semibold text-6xl leading-tight">
-          Portraits
+          Products
         </h1>
         <p className="text-gray-600 text-center font-normal text-lg leading-thin">
-          Many many portraits
+          Many many products
         </p>
       </main>
 
       <div className={styles.grid}>
-        {props?.posts?.results.map(post => (
+        {props?.posts?.results.map((post) => (
           <div key={post?.uid} className={styles.card}>
             <Link href={`/products/${post.uid}`}>
               <a>
@@ -62,7 +63,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts
-    }
+      posts,
+    },
   };
 }

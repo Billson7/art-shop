@@ -28,7 +28,7 @@ export default function Home(props) {
               }}
               className="row-span-3 box-content h-96 w-24 sm:32 md:w-48 p-5 rounded-lg text-white text-center shadow-md cursor-pointer"
             >
-              <a>Portraits</a>
+              <a>Products</a>
             </div>
           </Link>
           <Link href="/coming-soon">

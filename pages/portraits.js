@@ -5,9 +5,23 @@ import Head from "next/head";
 import { client } from "../prismic-configuration";
 import Prismic from "prismic-javascript";
 import styles from "../styles/Product.module.css";
+import { useRouter } from "next/router";
 
 export default function Portraits(props) {
+  // list of uid's
+  const uidList = props?.posts?.results.map((post) => post.uid);
+  console.log("---------------UIDLISTS---------------");
+  console.log(uidList);
 
+  const printList = uidList.filter((uidList) => uidList.length < 8);
+  console.log("---------------PRINTS---------------");
+  console.log(printList);
+
+  const portraitList = uidList.filter((uidList) => uidList.length > 8);
+  console.log("---------------PORTRAITS---------------");
+  console.log(portraitList);
+
+  // TODO: use printList and portraitList as a filter for the products page
   return (
     <div className={styles.container}>
       <Head>

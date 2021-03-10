@@ -20,13 +20,6 @@ function Product(props) {
     return pageUid;
   };
 
-  const returnPage = () => {
-    const determinePage = currentUid.includes(targetUid)
-      ? "/portraits"
-      : "/prints";
-    return determinePage;
-  };
-
   const priceLabel = () => {
     const label = currentUid.includes(targetUid)
       ? "/ per portrait"
@@ -34,26 +27,14 @@ function Product(props) {
     return label;
   };
 
-  const cmsRoute = () => {
-    const label = currentUid.includes(targetUid) ? "posts" : "prints";
-    return label;
-  };
-
-  const productInformation = () => {
-    const label = currentUid.includes(targetUid)
-      ? RichText.render(props?.posts?.data?.portraitInfo) ||
-        RichText.render(props?.prints?.data?.printInfo)
-      : {};
-    return label;
-  };
+  const productInformation = RichText.render(props?.posts?.data?.portraitInfo)
 
 
   return (
     <div className={styles.container}>
       <Head>
         <title>
-          {RichText.asText(props.posts?.data?.title) ||
-            RichText.asText(props.prints?.data?.title)}
+          {RichText.asText(props.posts?.data?.title)}
         </title>
       </Head>
 
@@ -71,7 +52,7 @@ function Product(props) {
           <div className="m-auto w-9/12 md:w-5/12">
             <h1 className="text-gray-900 font-semibold text-3xl leading-tight mt-2">
               {RichText.asText(
-                props?.posts?.data?.title || props?.prints?.data?.title
+                props?.posts?.data?.title
               )}
             </h1>
             <p className="mt-2">
@@ -86,17 +67,16 @@ function Product(props) {
             </button>
             <p className="text-gray-900 font-normal text-base leading-tight mt-6">
               {RichText.asText(
-                props?.posts?.data?.description ||
-                  props?.prints?.data?.description
+                props?.posts?.data?.description
               )}
             </p>
             <div>
               <p className="text-gray-900 font-semibold text-md leading-relaxed mt-6">
-                {productInformation()}
+                {productInformation}
               </p>
             </div>
 
-            <Link href={`${returnPage()}`}>
+            <Link href={"/portraits"}>
               <a>
                 <div className="text-gray-600 text-sm mt-6">&larr; Go Back</div>
               </a>
@@ -112,7 +92,7 @@ export default Product;
 
 export async function getStaticPaths() {
   const res = await client.query(
-    Prismic.Predicates.at("document.type", "portraits" || "prints"),
+    Prismic.Predicates.at("document.type", "portraits"),
     {
       orderings: "[my.post.date desc]"
     }
@@ -124,12 +104,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const posts = (await client.getByUID("portraits", `${params.uid}`)) || null;
-  const prints = (await client.getByUID("prints", `${params.uid}`)) || null;
 
   return {
     props: {
-      posts,
-      prints
+      posts
     }
   };
 }

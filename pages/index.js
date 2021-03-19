@@ -1,6 +1,7 @@
 import Head from "next/head";
+import Header from "./components/Header";
 import styles from "../styles/Home.module.css";
-import NavBar from "./components/navBar.js";
+import Container from "./components/styles/ContainerStyle";
 import { client } from "../prismic-configuration";
 import Link from "next/link";
 export default function Home(props) {
@@ -9,16 +10,12 @@ export default function Home(props) {
   const imageGiftcardSrc = props.homeGiftcard.data.giftcardimage?.url;
 
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <title>Beth Miller Art</title>
       </Head>
-      <NavBar />
-
+      <Header />
       <main className={styles.main}>
-        <div id="heading">
-          <h1 className=" text-4xl sm:text-5xl text-center">Welcome to Art</h1>
-        </div>
         <div className="mt-20 grid grid-rows-3 grid-flow-col gap-4">
           <Link href="/portraits">
             <div
@@ -55,7 +52,7 @@ export default function Home(props) {
           </Link>
         </div>
       </main>
-    </div>
+    </Container>
   );
 }
 

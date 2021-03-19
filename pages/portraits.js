@@ -1,18 +1,20 @@
-import NavBar from "./components/navBar";
+import Header from "./components/Header";
 import { RichText } from "prismic-reactjs";
 import Link from "next/link";
 import Head from "next/head";
 import { client } from "../prismic-configuration";
 import Prismic from "prismic-javascript";
 import styles from "../styles/Product.module.css";
+import Container from './components/styles/ContainerStyle'
 
 export default function Portraits(props) {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <title>BMA | Portraits</title>
       </Head>
-      <NavBar />
+
+      <Header />
 
       <main className={styles.main}>
         <h1 className="text-gray-900 text-center font-semibold text-6xl leading-tight">
@@ -50,7 +52,7 @@ export default function Portraits(props) {
           </div>
         ))}
       </div>
-    </div>
+    </Container>
   );
 }
 

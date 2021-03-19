@@ -5,7 +5,9 @@ import { RichText } from "prismic-reactjs";
 import Prismic from "prismic-javascript";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import NavBar from "../components/navBar";
+import Header from "../components/Header";
+import Container from '../components/styles/ContainerStyle'
+
 
 function Product(props) {
   const router = useRouter();
@@ -40,9 +42,9 @@ function Product(props) {
         <title>{RichText.asText(props.posts.data?.title)}</title>
       </Head>
 
-      <NavBar />
+      <Header />
 
-      <section className={styles.main}>
+      <Container>
         <div className="flex flex-col md:flex-row">
           <div className=" m-auto w-10/12 md:w-5/12">
             <img
@@ -81,7 +83,7 @@ function Product(props) {
             </Link>
           </div>
         </div>
-      </section>
+      </Container>
     </div>
   );
 }

@@ -5,6 +5,6 @@
 
 Buy portraits & prints.
 
-[Check it out!](https://www.bethmiller.art)
+[Check it out!](https://laughing-archimedes-f655d3.netlify.app/)
 
 This project was built with [React](https://reactjs.org/) & [Prismic](https://prismic.io)
